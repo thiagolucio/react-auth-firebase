@@ -1,0 +1,41 @@
+CONFIG:
+
+const firebaseConfig = {
+  apiKey: "AIzaSyAmQhxU_ghDdyI4EKzb5Wx1MxvJQ43r2aw",
+  authDomain: "authfib.firebaseapp.com",
+  databaseURL: "https://authfib.firebaseio.com",
+  projectId: "authfib",
+  storageBucket: "authfib.appspot.com",
+  messagingSenderId: "651755352191",
+  appId: "1:651755352191:web:b89f6f402c577fb19d0f4a",
+  measurementId: "G-PJJ6DZLK83"
+};
+
+
+
+CDN:
+
+
+<!-- The core Firebase JS SDK is always required and must be listed first -->
+<script src="https://www.gstatic.com/firebasejs/7.7.0/firebase-app.js"></script>
+
+<!-- TODO: Add SDKs for Firebase products that you want to use
+     https://firebase.google.com/docs/web/setup#available-libraries -->
+<script src="https://www.gstatic.com/firebasejs/7.7.0/firebase-analytics.js"></script>
+
+<script>
+  // Your web app's Firebase configuration
+  var firebaseConfig = {
+    apiKey: "AIzaSyAmQhxU_ghDdyI4EKzb5Wx1MxvJQ43r2aw",
+    authDomain: "authfib.firebaseapp.com",
+    databaseURL: "https://authfib.firebaseio.com",
+    projectId: "authfib",
+    storageBucket: "authfib.appspot.com",
+    messagingSenderId: "651755352191",
+    appId: "1:651755352191:web:b89f6f402c577fb19d0f4a",
+    measurementId: "G-PJJ6DZLK83"
+  };
+  // Initialize Firebase
+  firebase.initializeApp(firebaseConfig);
+  firebase.analytics();
+</script>

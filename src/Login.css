@@ -1,0 +1,45 @@
+
+.user_card {
+    width: 380px;
+    height: 400px;
+    background: #fed136;
+    border-radius: 5px;
+    font-size: 14px;
+    padding: 16px;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    -webkit-box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    -moz-box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  }
+  .brand_logo_container {
+    position: absolute;
+    height: 170px;
+    width: 170px;
+    top: -75px;
+    border-radius: 50%;
+    background: #23272b;
+
+    padding: 10px;
+    text-align: center;
+  }
+  .brand_logo {
+    height: 150px;
+    width: 150px;
+    border-radius: 50%;
+  }
+  .form_container {
+    margin-top: 100px;
+  }
+
+  .input-group-text {
+    background: #58C097;
+    color: white;
+    border: 0;  
+  }
+.brl-6 {
+    border-top-left-radius: 6px!important;
+    border-bottom-left-radius: 6px!important;
+}
