@@ -8,13 +8,14 @@ class Home extends Component {
         // this.updateEmail = this.updateEmail.bind(this);
         // this.updatePassword = this.updatePassword().bind(this);
         this.remove = this.remove.bind(this);
+        this.user = fire.auth().currentUser;
+        this.uid,  this.email, this.password;
         this.handleChange = this.handleChange.bind(this);
         this.state = {
             email: '',
             password: ''
         };
     }
-
 
     handleChange(e) {
         this.setState({ [e.target.name]: e.target.value });
@@ -25,26 +26,26 @@ class Home extends Component {
         fire.auth().signOut();
     }
 
-    //
-    // updateEmail(e){
-    //     e.preventDefault();
-    //     fire.auth().updateEmail(this.state.email).then((u)=>{
-    //     }).then((u)=>{console.log(u)})
-    //         .catch((error) => {
-    //             console.log(error);
-    //             document.getElementById("wrongUser").innerHTML = '<div class="alert alert-dismissible alert-danger animated flipInX"><button type="button" class="close" data-dismiss="alert"><i class="fas fa-times-circle"></i></button><strong>You no have permission to change your data!</strong></div>';
-    //         })
-    // }
 
-    // updatePassword(e){
-    //     e.preventDefault();
-    //     fire.auth().currentUser.updatePassword(this.state.password).then((u)=>{
-    //     }).then((u)=>{console.log(u)})
-    //         .catch((error) => {
-    //             console.log(error);
-    //             document.getElementById("wrongUser").innerHTML = '<div class="alert alert-dismissible alert-danger animated flipInX"><button type="button" class="close" data-dismiss="alert"><i class="fas fa-times-circle"></i></button><strong>You no have permission to change your data!</strong></div>';
-    //         })
-    // }
+    updateEmail(e){
+        e.preventDefault();
+        fire.auth().updateEmail(this.state.email).then((u)=>{
+        }).then((u)=>{console.log(u)})
+            .catch((error) => {
+                console.log(error);
+                document.getElementById("wrongUser").innerHTML = '<div class="alert alert-dismissible alert-danger animated flipInX"><button type="button" class="close" data-dismiss="alert"><i class="fas fa-times-circle"></i></button><strong>You no have permission to change your data!</strong></div>';
+            })
+    }
+
+    updatePassword(e){
+        e.preventDefault();
+        fire.auth().currentUser.updatePassword(this.state.password).then((u)=>{
+        }).then((u)=>{console.log(u)})
+            .catch((error) => {
+                console.log(error);
+                document.getElementById("wrongUser").innerHTML = '<div class="alert alert-dismissible alert-danger animated flipInX"><button type="button" class="close" data-dismiss="alert"><i class="fas fa-times-circle"></i></button><strong>You no have permission to change your data!</strong></div>';
+            })
+    }
 
     remove(e){
         e.preventDefault();
