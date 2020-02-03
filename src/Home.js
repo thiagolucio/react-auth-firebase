@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React, {Component} from 'react';
 import fire from './config/Fire';
 
 require('firebase/auth');
@@ -16,22 +16,21 @@ class Home extends Component {
     }
 
     handleChange(e) {
-        this.setState({ [e.target.name]: e.target.value });
+        this.setState({[e.target.name]: e.target.value});
     }
 
     logout() {
         fire.auth().signOut();
     }
 
-    delete(e){
+    delete(e) {
         e.preventDefault();
-        fire.auth().currentUser.delete().then( () => {
+        fire.auth().currentUser.delete().then(() => {
             console.log('delete successful!');
         }).catch(function (error) {
             console.error({error});
         })
     }
-
 
     render() {
         return (
@@ -47,7 +46,9 @@ class Home extends Component {
                         <div className="collapse navbar-collapse" id="conteudoNavbarSuportado">
                             <div className="navbar-nav mr-auto mt-2 mt-lg-0"/>
                             <div className="form-inline my-2 my-lg-0">
-                                <button className="btn btn-outline-success my-2 my-sm-0" onClick={this.logout}>Logout</button>
+                                <button className="btn btn-outline-warning my-2 my-sm-0" onClick={this.logout}>
+                                    <i className="fas fa-sign-out-alt"></i> Logout
+                                </button>
                             </div>
                         </div>
                     </nav>
@@ -64,24 +65,36 @@ class Home extends Component {
                                         </div>
                                         <div className="col-md-8">
                                             <div className="card-body">
+                                                <div className="row">
+                                                    <div className="col-12">
+
+                                                    </div>
+                                                </div>
                                                 <form>
                                                     <div className="input-group input-group-lg p-4">
                                                         <div className="input-group-append">
-                                                            <span className="input-group-text brl-6"><i className="fas fa-at"/></span>
+                                                            <span className="input-group-text brl-6"><i
+                                                                className="fas fa-at"/></span>
                                                         </div>
-                                                        <input value={this.state.email} onChange={this.handleChange} type="email" name="email" className="form-control" placeholder="email" />
+                                                        <input value={this.state.email} onChange={this.handleChange}
+                                                               type="email" name="email" className="form-control"
+                                                               placeholder="email"/>
                                                     </div>
                                                     <div className="input-group input-group-lg pl-4 pr-4">
                                                         <div className="input-group-append">
-                                                            <span className="input-group-text brl-6"><i className="fas fa-key"/></span>
+                                                            <span className="input-group-text brl-6"><i
+                                                                className="fas fa-key"/></span>
                                                         </div>
-                                                        <input value={this.state.password} onChange={this.handleChange} type="password" name="password" className="form-control" placeholder="password" />
+                                                        <input value={this.state.password} onChange={this.handleChange}
+                                                               type="password" name="password" className="form-control"
+                                                               placeholder="password"/>
                                                         {/*<button type="submit" onClick={this.forgotPassword} className="btn btn-warning btn-lg btn-block">*/}
                                                         {/*    Change password*/}
                                                         {/*</button>*/}
                                                     </div>
                                                     <div className="d-flex justify-content-center m-4">
-                                                        <button type="submit" onClick={this.delete} className="ml-2 btn-danger btn-lg btn-block">
+                                                        <button type="submit" onClick={this.delete}
+                                                                className="ml-2 btn-danger btn-lg btn-block">
                                                             Remove
                                                         </button>
                                                     </div>
