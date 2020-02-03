@@ -1,5 +1,6 @@
 import firebase from 'firebase';
 
+
 const config = {
     apiKey: "AIzaSyAmQhxU_ghDdyI4EKzb5Wx1MxvJQ43r2aw",
     authDomain: "authfib.firebaseapp.com",
@@ -11,4 +12,5 @@ const config = {
     measurementId: "G-PJJ6DZLK83"
   };
   const fire = firebase.initializeApp(config);
-export default fire;
+
+export default (fire);

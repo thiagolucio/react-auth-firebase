@@ -1,16 +1,14 @@
 import React, { Component } from 'react';
 import fire from './config/Fire';
 
+require('firebase/auth');
+
 class Home extends Component {
     constructor(props) {
         super(props);
         this.logout = this.logout.bind(this);
-        // this.updateEmail = this.updateEmail.bind(this);
-        // this.updatePassword = this.updatePassword().bind(this);
-        this.remove = this.remove.bind(this);
-        this.user = fire.auth().currentUser;
-        this.uid,  this.email, this.password;
         this.handleChange = this.handleChange.bind(this);
+        this.delete = this.delete.bind(this);
         this.state = {
             email: '',
             password: ''
@@ -21,42 +19,19 @@ class Home extends Component {
         this.setState({ [e.target.name]: e.target.value });
     }
 
-
     logout() {
         fire.auth().signOut();
     }
 
-
-    updateEmail(e){
+    delete(e){
         e.preventDefault();
-        fire.auth().updateEmail(this.state.email).then((u)=>{
-        }).then((u)=>{console.log(u)})
-            .catch((error) => {
-                console.log(error);
-                document.getElementById("wrongUser").innerHTML = '<div class="alert alert-dismissible alert-danger animated flipInX"><button type="button" class="close" data-dismiss="alert"><i class="fas fa-times-circle"></i></button><strong>You no have permission to change your data!</strong></div>';
-            })
+        fire.auth().currentUser.delete().then( () => {
+            console.log('delete successful!');
+        }).catch(function (error) {
+            console.error({error});
+        })
     }
 
-    updatePassword(e){
-        e.preventDefault();
-        fire.auth().currentUser.updatePassword(this.state.password).then((u)=>{
-        }).then((u)=>{console.log(u)})
-            .catch((error) => {
-                console.log(error);
-                document.getElementById("wrongUser").innerHTML = '<div class="alert alert-dismissible alert-danger animated flipInX"><button type="button" class="close" data-dismiss="alert"><i class="fas fa-times-circle"></i></button><strong>You no have permission to change your data!</strong></div>';
-            })
-    }
-
-    remove(e){
-        e.preventDefault();
-        fire.auth().currentUser.delete().then((u)=>{
-        }).then((u)=>{console.log(u)})
-            .catch((error) => {
-                console.log(error);
-                document.getElementById("wrongUser").innerHTML = '<div class="alert alert-dismissible alert-danger animated flipInX"><button type="button" class="close" data-dismiss="alert"><i class="fas fa-times-circle"></i></button><strong>You no have permission to change your data!</strong></div>';
-            })
-    }
-    
 
     render() {
         return (
@@ -95,21 +70,18 @@ class Home extends Component {
                                                             <span className="input-group-text brl-6"><i className="fas fa-at"/></span>
                                                         </div>
                                                         <input value={this.state.email} onChange={this.handleChange} type="email" name="email" className="form-control" placeholder="email" />
-                                                        <button type="submit" onClick={this.updateEmail} className="btn btn-warning btn-lg btn-block">
-                                                            Change email
-                                                        </button>
                                                     </div>
                                                     <div className="input-group input-group-lg pl-4 pr-4">
                                                         <div className="input-group-append">
                                                             <span className="input-group-text brl-6"><i className="fas fa-key"/></span>
                                                         </div>
                                                         <input value={this.state.password} onChange={this.handleChange} type="password" name="password" className="form-control" placeholder="password" />
-                                                        <button type="submit" onClick={this.updatePassword} className="btn btn-warning btn-lg btn-block">
-                                                            Change password
-                                                        </button>
+                                                        {/*<button type="submit" onClick={this.forgotPassword} className="btn btn-warning btn-lg btn-block">*/}
+                                                        {/*    Change password*/}
+                                                        {/*</button>*/}
                                                     </div>
                                                     <div className="d-flex justify-content-center m-4">
-                                                        <button type="submit" onClick={this.remove} className="ml-2 btn-danger btn-lg btn-block">
+                                                        <button type="submit" onClick={this.delete} className="ml-2 btn-danger btn-lg btn-block">
                                                             Remove
                                                         </button>
                                                     </div>

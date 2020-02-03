@@ -7,8 +7,8 @@ import logo from './justLogo.png';
 class Login extends Component {
   constructor(props) {
     super(props);
-    this.login = this.login.bind(this);
     this.handleChange = this.handleChange.bind(this);
+    this.login = this.login.bind(this);
     this.signup = this.signup.bind(this);
     this.state = {
       email: '',
