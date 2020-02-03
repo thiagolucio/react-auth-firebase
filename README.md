@@ -1,6 +1,6 @@
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
-## Just put `yarn install` and ### `yarn start` in your terminal inside project folder. 
+## Just put `yarn install` and `yarn start` in your terminal inside project folder. 
 
 This project is an authentication and user login screen in React using Firebase in Backend to meet the requirement for data to be in the cloud.
 
