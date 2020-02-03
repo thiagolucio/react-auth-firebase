@@ -11,6 +11,7 @@ Authentication process with the identifier:
 - If the user already has an account, login with it. As an example, I left two accounts registered:
 
 malone@gmail.com
+
 thiagolucio@gmail.com
 
 Password for both created accounts is "123456"
